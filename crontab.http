@@ -1,0 +1,33 @@
+POST http://127.0.0.1:7200/jobs
+Content-Type: application/json
+
+{
+  "name": "job3",
+  "command": "echo hello",
+  "cronExpr": "* * * * *"
+}
+
+###
+DELETE http://127.0.0.1:7200/jobs
+Content-Type: application/json
+
+{
+  "name": "job2"
+}
+
+###
+GET http://127.0.0.1:7200/jobs
+
+###
+POST http://127.0.0.1:7200/jobs/kill
+Content-Type: application/json
+
+{
+  "name": "job1"
+}
+
+###
+GET http://127.0.0.1:7200/jobs/logs?name=job10&skip=0&limit=10
+
+###
+GET http://127.0.0.1:7200/workers
